@@ -29,4 +29,10 @@ public class DepartmanManager implements DepartmanService {
         this.departmanDao.save(departman);
         return new SuccessResult("Departman Eklendi");
     }
+
+    @Override
+    public DataResult<Departman> deletById(int departman_id) {
+        this.departmanDao.deleteById(departman_id);
+        return new SuccessDataResult<>("The Customer with number: " + departman_id + " is deleted.");
+    }
 }

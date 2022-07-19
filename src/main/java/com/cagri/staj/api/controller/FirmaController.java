@@ -6,6 +6,7 @@ import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
 import com.cagri.staj.entities.concretes.Departman;
 import com.cagri.staj.entities.concretes.Firma;
+import com.cagri.staj.entities.concretes.Hizmet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,10 @@ public class FirmaController {
     @PostMapping("/add")
     public Result add(@RequestBody Firma firma) {
         return this.firmaService.add(firma);
+    }
+
+    @PostMapping("/delete")
+    public DataResult<Hizmet> deleteById(int delete_int) {
+        return this.firmaService.deleteById(delete_int);
     }
 }

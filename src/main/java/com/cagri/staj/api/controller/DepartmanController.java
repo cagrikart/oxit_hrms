@@ -4,7 +4,9 @@ import com.cagri.staj.business.abstracts.DepartmanService;
 import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
 import com.cagri.staj.core.utilities.results.SuccessDataResult;
+import com.cagri.staj.core.utilities.results.SuccessResult;
 import com.cagri.staj.entities.concretes.Departman;
+import com.cagri.staj.entities.concretes.Hizmet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +28,12 @@ public class DepartmanController {
     }
 
     @PostMapping("/add")
-    public Result add(@RequestBody Departman departman){
+    public Result add(@RequestBody Departman departman) {
         return this.departmanService.add(departman);
+    }
+
+    @PostMapping("/delete")
+    public DataResult<Departman> deletById(@RequestParam int departman_id) {
+        return  this.departmanService.deletById(departman_id);
     }
 }

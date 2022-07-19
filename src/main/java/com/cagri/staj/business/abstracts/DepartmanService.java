@@ -10,4 +10,5 @@ import java.util.List;
 public interface DepartmanService {
     DataResult<List<Departman>> getAll();
     Result add(Departman departman);
+    DataResult<Departman> deletById(int departman_id);
 }

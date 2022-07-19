@@ -31,4 +31,9 @@ public class PersonelController {
     public Result add(@RequestBody Personel personel) {
         return this.personelService.add(personel);
     }
+
+    @PostMapping("/delete")
+    public DataResult<Personel> deleteById(@RequestParam int delete_int) {
+        return this.personelService.deleteById(delete_int);
+    }
 }

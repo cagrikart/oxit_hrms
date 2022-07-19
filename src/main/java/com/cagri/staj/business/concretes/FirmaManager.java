@@ -7,6 +7,7 @@ import com.cagri.staj.core.utilities.results.SuccessDataResult;
 import com.cagri.staj.core.utilities.results.SuccessResult;
 import com.cagri.staj.dataAccess.FirmaDao;
 import com.cagri.staj.entities.concretes.Firma;
+import com.cagri.staj.entities.concretes.Hizmet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +32,11 @@ public class FirmaManager implements FirmaService
         this.firmaDao.save(firma);
         return new SuccessResult("firma eklendi");
     }
+
+    @Override
+    public DataResult<Hizmet> deleteById(int delete_int) {
+        this.firmaDao.deleteById(delete_int);
+        return new SuccessDataResult<>("The Customer with number: " + delete_int + " is deleted.");    }
+
+
 }

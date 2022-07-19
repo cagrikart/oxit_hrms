@@ -30,4 +30,10 @@ public class PersonelManager implements PersonelService {
         this.personelDao.save(personel);
         return new SuccessResult("personel listelendi");
     }
+
+    @Override
+    public DataResult<Personel> deleteById(int delete_int) {
+        this.personelDao.deleteById(delete_int);
+        return new SuccessDataResult<>( delete_int +" silindi");
+    }
 }
