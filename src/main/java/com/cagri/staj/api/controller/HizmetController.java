@@ -6,10 +6,12 @@ import com.cagri.staj.core.utilities.results.Result;
 import com.cagri.staj.entities.concretes.Departman;
 import com.cagri.staj.entities.concretes.Firma;
 import com.cagri.staj.entities.concretes.Hizmet;
+import com.cagri.staj.entities.concretes.Sozlesme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/api/hizmet")
 @CrossOrigin
@@ -29,5 +31,10 @@ public class HizmetController {
     @PostMapping("/add")
     public Result add(@RequestBody Hizmet hizmet) {
         return this.hizmetService.add(hizmet);
+    }
+
+    @PostMapping("/delete")
+    public DataResult<Hizmet> deleteById(@RequestParam  int hizmet_id) {
+        return this.hizmetService.deleteById(hizmet_id);
     }
 }

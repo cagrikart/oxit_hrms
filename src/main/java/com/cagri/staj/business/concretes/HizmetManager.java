@@ -30,4 +30,12 @@ public class HizmetManager implements HizmetService {
         this.hizmetDao.save(hizmet);
         return new  SuccessResult("Hizmet eklendi");
     }
+
+    @Override
+    public DataResult<Hizmet> deleteById(int hizmet_id) {
+        this.hizmetDao.deleteById(hizmet_id);
+        return new SuccessDataResult<>("The Customer with number: " + hizmet_id + " is deleted.");
+    }
+
+
 }

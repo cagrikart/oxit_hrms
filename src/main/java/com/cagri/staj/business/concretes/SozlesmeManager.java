@@ -31,4 +31,12 @@ public class SozlesmeManager implements SozlesmeService {
         this.sozlesmeDao.save(sozlesme);
         return new SuccessResult("Sozlesme eklendi");
     }
+
+    @Override
+    public DataResult<Sozlesme> deleteById(int sozlesme_id) {
+         this.sozlesmeDao.deleteById(sozlesme_id);
+         return new SuccessDataResult<>("The Customer with number: " + sozlesme_id + " is deleted.");
+    }
+
+
 }

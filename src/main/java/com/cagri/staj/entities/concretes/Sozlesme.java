@@ -19,22 +19,22 @@ public class Sozlesme {
     @Column(name = "sozlesme_id")
     @NotNull
     private int sozlesme_id;
-    @Column(name = "sozlesme_tarihi")
+    @Column(name = "sozlesme_tarih")
     @NotNull
-    private Date sozlesme_tarihi;
+    private Date sozlesme_tarih;
     @Column(name = "kdvsiz_fiyat")
     @NotNull
     private int kdvsiz_fiyat;
     @Column(name = "kdvli_fiyat")
     @NotNull
     private int kdvli_fiyat;
-    @Column(name = "kaparo")
+    @Column(name = "kapora")
     @NotNull
-    private int kaparo;
+    private int kapora;
     @Column(name = "yillik_yenileme_tutari")
     @NotNull
     private Date yillik_yenileme_tutari;
-    @Column(name = "sözlesme_dosyasi")
+    @Column(name = "sozlesme_dosyasi")
     @NotNull
     private String sozlesme_dosyasi;
     @Column(name = "not")
@@ -43,7 +43,6 @@ public class Sozlesme {
     @Column(name = "sozlesme_suresi")
     @NotNull
     private int sozlesme_suresi;
-
 
     @ManyToOne()
     @JoinColumn(name = "firma_id")

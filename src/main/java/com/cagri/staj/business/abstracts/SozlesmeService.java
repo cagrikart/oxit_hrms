@@ -12,4 +12,5 @@ public interface SozlesmeService {
 
     DataResult<List<Sozlesme>> getAll();
     Result add( Sozlesme  sozlesme);
+    DataResult<Sozlesme> deleteById(int sozlesme_id);
 }
