@@ -52,8 +52,8 @@ public class Sozlesme {
    @JoinColumn(name = "personel_id")
    private Personel personel;
 
-   @ManyToOne()
-   @JoinColumn(name = "hizmet_id")
-   private Hizmet hizmet;
+//   @ManyToOne()
+//   @JoinColumn(name = "hizmet_id")
+//   private Hizmet hizmet;
 
 }

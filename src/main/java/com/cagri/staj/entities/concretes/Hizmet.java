@@ -7,14 +7,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
+
+@Table(name = "hizmet")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","sozlesmeler"})
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "hizmet")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","sozlesmeler"})
 public class Hizmet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +25,10 @@ public class Hizmet {
     @NotNull
     private int hizmet_id;
 
+
+
     @Column(name = "hizmet_ad")
     @NotNull
     private String hizmet_ad;
 
-    @OneToMany(mappedBy = "hizmet")
-    private List<Sozlesme> sozlesmeler;
 }
