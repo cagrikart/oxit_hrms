@@ -25,8 +25,6 @@ public class Hizmet {
     @NotNull
     private int hizmet_id;
 
-
-
     @Column(name = "hizmet_ad")
     @NotNull
     private String hizmet_ad;

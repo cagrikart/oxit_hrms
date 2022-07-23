@@ -30,16 +30,16 @@ public class Firma {
     private String yetkili_soyad;
     @Column(name = "cep_telefon")
     @NotNull
-    private int cep_tel;
+    private String cep_tel;
     @Column(name = "sabit_telefon")
     @NotNull
-    private int sabit_tel;
+    private String sabit_tel;
     @Column(name = "vergi_dairesi")
     @NotNull
     private String vergi_dairesi;
     @Column(name = "vergi_numarasi")
     @NotNull
-    private int vergi_numarasi;
+    private String vergi_numarasi;
     @Column(name = "e_mail")
     @NotNull
     private String email;

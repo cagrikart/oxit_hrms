@@ -37,5 +37,24 @@ public class HizmetManager implements HizmetService {
         return new SuccessDataResult<>("The Customer with number: " + hizmet_id + " is deleted.");
     }
 
+    @Override
+    public Result updateHizmet(int hizmet_id, String hizmet_ad) {
+        this.hizmetDao.updateHizmet(hizmet_id,hizmet_ad);
+        return new SuccessResult("güncellendi");
+    }
+//
+//    @Override
+//    public Result update(int hizmet_id, String hizmet_ad) {
+//         this.hizmetDao.updateHizmet(hizmet_id,hizmet_ad);
+//         return new SuccessResult("güncellendi");
+//    }
+
+
+//    @Override
+//    public Result update(Hizmet hizmet) {
+//        this.hizmetDao.save(hizmet);
+//        return new SuccessResult("Hizmet Güncellendi");
+//    }
+
 
 }

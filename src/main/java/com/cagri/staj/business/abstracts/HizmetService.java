@@ -16,4 +16,5 @@ public interface HizmetService {
 
     DataResult<Hizmet> deleteById(int hizmet_id);
 
+    Result updateHizmet (int hizmet_id,String hizmet_ad);
 }
