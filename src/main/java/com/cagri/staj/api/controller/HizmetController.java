@@ -5,6 +5,7 @@ import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
 import com.cagri.staj.dataAccess.HizmetDao;
 import com.cagri.staj.entities.concretes.Hizmet;
+import com.cagri.staj.entities.concretes.UpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +38,11 @@ public class HizmetController {
         return this.hizmetService.deleteById(hizmet_id);
     }
 
-    @PostMapping("/update/{hizmet_id}")
-    public Result update(@RequestParam(name = "hizmet_id") int hizmet_id, @RequestParam(name = "hizmet_ad") String hizmet_ad) {
-        return this.hizmetService.updateHizmet(hizmet_id,hizmet_ad);
+    @PostMapping(value = "/update/" ,  produces  = "application/json",consumes  = "application/json")
+    public Result update(@RequestBody UpdateRequest updateRequest) {
+        return this.hizmetService.updateHizmet(updateRequest);
     }
+
     @DeleteMapping("/delete/{hizmet_id}")
     public ResponseEntity deleteClient(@PathVariable (name = "hizmet_id") int hizmet_id) {
         hizmetService.deleteById(hizmet_id);

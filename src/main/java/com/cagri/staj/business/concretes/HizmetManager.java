@@ -7,6 +7,7 @@ import com.cagri.staj.core.utilities.results.SuccessDataResult;
 import com.cagri.staj.core.utilities.results.SuccessResult;
 import com.cagri.staj.dataAccess.HizmetDao;
 import com.cagri.staj.entities.concretes.Hizmet;
+import com.cagri.staj.entities.concretes.UpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +39,12 @@ public class HizmetManager implements HizmetService {
     }
 
     @Override
-    public Result updateHizmet(int hizmet_id, String hizmet_ad) {
-        this.hizmetDao.updateHizmet(hizmet_id,hizmet_ad);
+    public Result updateHizmet(UpdateRequest updateRequest) {
+        String ad;
+        ad = updateRequest.getHizmet_ad();
+        int id ;
+        id = updateRequest.getHizmet_id();
+        this.hizmetDao.updateHizmet(id ,ad);
         return new SuccessResult("güncellendi");
     }
 //
