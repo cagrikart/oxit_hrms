@@ -25,7 +25,7 @@ public class Departman {
     @Column(name = "departman_ad")
     @NotNull
     private String departman_ad;
-
-    @OneToMany(mappedBy = "departman")
-    private List<Personel> personel;
+//
+//    @OneToMany(mappedBy = "departman")
+//    private List<Personel> personel;
 }

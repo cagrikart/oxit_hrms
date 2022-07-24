@@ -43,9 +43,9 @@ public class Personel {
     //departman_id;  ilişki yazılacak
     //sözleşme
 
-     @ManyToOne()
-     @JoinColumn(name = "departman_id")
-     private Departman departman;
+//     @ManyToOne()
+//     @JoinColumn(name = "departman_id")
+//     private Departman departman;
 
 
     @OneToMany(mappedBy = "personel")
