@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 public interface HizmetDao extends JpaRepository<Hizmet,Integer> { // Repository
     @Transactional
     @Modifying
-
     @Query("UPDATE Hizmet h set h.hizmet_ad =:hizmet_ad where h.hizmet_id=:hizmet_id ")
     void updateHizmet(@Param(value = "hizmet_id") int hizmet_id, @Param (value = "hizmet_ad") String hizmet_ad);
 

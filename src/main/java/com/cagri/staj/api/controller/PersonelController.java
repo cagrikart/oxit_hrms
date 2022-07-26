@@ -3,16 +3,17 @@ package com.cagri.staj.api.controller;
 import com.cagri.staj.business.abstracts.PersonelService;
 import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
-import com.cagri.staj.entities.concretes.Firma;
-import com.cagri.staj.entities.concretes.Hizmet;
-import com.cagri.staj.entities.concretes.Personel;
+import com.cagri.staj.entities.concretes.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/personel")
+@CrossOrigin
 public class PersonelController {
 
     private PersonelService personelService;
@@ -27,13 +28,32 @@ public class PersonelController {
         return this.personelService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add" ,  produces  = "application/json",consumes  = "application/json")
     public Result add(@RequestBody Personel personel) {
         return this.personelService.add(personel);
     }
 
-    @PostMapping("/delete")
-    public DataResult<Personel> deleteById(@RequestParam int delete_int) {
-        return this.personelService.deleteById(delete_int);
+
+    @DeleteMapping("/delete/{personel_id}")
+    public ResponseEntity deletePersonel(@PathVariable (name = "personel_id") int  personel_id) {
+         personelService.deleteById(personel_id);
+        return ResponseEntity.ok().build();
     }
+
+   @PostMapping(value = "/update/" ,  produces  = "application/json",consumes  = "application/json")
+   public Result update(@RequestParam UpdateRequestPersonel updateRequestPersonel) {
+       return this.personelService.updateHizmet(updateRequestPersonel);
+   }
+
+
+
+
+//    @PostMapping("/delete")
+//    public DataResult<Personel> deleteById(@RequestParam int delete_int) {
+//        return this.personelService.deleteById(delete_int);
+//    }
+
+
+
+
 }

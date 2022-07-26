@@ -13,7 +13,6 @@ import java.util.List;
 
 
 @Table(name = "hizmet")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","sozlesmeler"})
 @Entity
 @Data
 @AllArgsConstructor

@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "firma"})
 public class Departman {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +24,4 @@ public class Departman {
     @Column(name = "departman_ad")
     @NotNull
     private String departman_ad;
-//
-//    @OneToMany(mappedBy = "departman")
-//    private List<Personel> personel;
 }

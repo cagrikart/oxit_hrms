@@ -28,19 +28,16 @@ public class HizmetController {
         return this.hizmetService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add" ,  produces  = "application/json",consumes  = "application/json")
     public Result add(@RequestBody Hizmet hizmet) {
         return this.hizmetService.add(hizmet);
     }
 
-    @PostMapping("/delete/{hizmet_id}")
-    public DataResult<Hizmet> deleteById(@RequestParam  int hizmet_id) {
-        return this.hizmetService.deleteById(hizmet_id);
-    }
+
 
     @PostMapping(value = "/update/" ,  produces  = "application/json",consumes  = "application/json")
     public Result update(@RequestBody UpdateRequest updateRequest) {
-        return this.hizmetService.updateHizmet(updateRequest);
+        return  this.hizmetService.updateHizmet(updateRequest);
     }
 
     @DeleteMapping("/delete/{hizmet_id}")
@@ -48,4 +45,10 @@ public class HizmetController {
         hizmetService.deleteById(hizmet_id);
         return ResponseEntity.ok().build();
     }
+
+//    @PostMapping("/delete/{hizmet_id}")
+//    public DataResult<Hizmet> deleteById(@RequestParam  int hizmet_id) {
+//        return this.hizmetService.deleteById(hizmet_id);
+//    }
+
 }

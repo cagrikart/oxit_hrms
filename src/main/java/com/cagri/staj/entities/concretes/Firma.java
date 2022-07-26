@@ -1,20 +1,20 @@
 package com.cagri.staj.entities.concretes;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "firmalar")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","sozlesmeler"})
+@Getter
+@Setter
+@Table(name = "firma")
 
 public class Firma {
     @Id
@@ -22,44 +22,54 @@ public class Firma {
     @Column(name = "firma_id")
     @NotNull
     private int firma_id;
+
+
     @Column(name = "yetkili_ad")
-    @NotNull
     private String yetkili_ad;
+
+
     @Column(name = "yetkili_soyad")
-    @NotNull
     private String yetkili_soyad;
+
+
     @Column(name = "cep_telefon")
-    @NotNull
     private String cep_tel;
+
+
     @Column(name = "sabit_telefon")
-    @NotNull
     private String sabit_tel;
+
+
     @Column(name = "vergi_dairesi")
-    @NotNull
     private String vergi_dairesi;
+
+
     @Column(name = "vergi_numarasi")
-    @NotNull
     private String vergi_numarasi;
+
+
     @Column(name = "e_mail")
-    @NotNull
     private String email;
-    @Column(name = "il")
-    @NotNull
+
+
+    @Column(name = "firma_il")
     private String il;
-    @Column(name = "ilxe")
-    @NotNull
+
+
+    @Column(name = "firma_ilce")
     private String ilce;
+
+
     @Column(name = "firma_adres")
-    @NotNull
     private String firma_adres;
-    @Column(name = "not")
-    @NotNull
+
+
+    @Column(name = "firma_not")
     private String not;
-    @Column(name = "domain_ad")
-    @NotNull
+
+
+    @Column(name = "firma_domain_ad")
     private String domain_ad;
 
-   @OneToMany(mappedBy = "firma")
-    private List<Sozlesme> sozlesmeler;
 
 }

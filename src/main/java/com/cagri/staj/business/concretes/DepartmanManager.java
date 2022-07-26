@@ -7,7 +7,7 @@ import com.cagri.staj.core.utilities.results.SuccessDataResult;
 import com.cagri.staj.core.utilities.results.SuccessResult;
 import com.cagri.staj.dataAccess.DepartmanDao;
 import com.cagri.staj.entities.concretes.Departman;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cagri.staj.entities.concretes.UpdateRequestDepartman;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,4 +35,16 @@ public class DepartmanManager implements DepartmanService {
         this.departmanDao.deleteById(departman_id);
         return new SuccessDataResult<>("The Customer with number: " + departman_id + " is deleted.");
     }
+
+    @Override
+    public Result updateDepartman(UpdateRequestDepartman updateRequestDepartman) {
+        String ad ;
+        int id;
+        ad = updateRequestDepartman.getDepartman_ad();
+        id =  updateRequestDepartman.getDepartman_id();
+        this.departmanDao.updateDepartman(id,ad);
+        return new SuccessResult("güncellendi");
+    }
+
+
 }

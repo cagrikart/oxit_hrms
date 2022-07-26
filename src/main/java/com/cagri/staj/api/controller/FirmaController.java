@@ -1,20 +1,18 @@
 package com.cagri.staj.api.controller;
 
-import com.cagri.staj.business.abstracts.DepartmanService;
 import com.cagri.staj.business.abstracts.FirmaService;
 import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
-import com.cagri.staj.entities.concretes.Departman;
 import com.cagri.staj.entities.concretes.Firma;
 import com.cagri.staj.entities.concretes.Hizmet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/firma")
-@CrossOrigin
 public class FirmaController {
     private FirmaService firmaService;
 
@@ -33,8 +31,18 @@ public class FirmaController {
         return this.firmaService.add(firma);
     }
 
-    @PostMapping("/delete")
-    public DataResult<Hizmet> deleteById(int delete_int) {
-        return this.firmaService.deleteById(delete_int);
+
+
+    @DeleteMapping("/delete/{firma_id}")
+    public ResponseEntity deleteFirma(@PathVariable (name = "firma_id") int firma_id) {
+        firmaService.deleteById(firma_id);
+        return ResponseEntity.ok().build();
     }
+
+    //    @PostMapping("/delete")
+//    public DataResult<Hizmet> deleteById(int delete_int) {
+//        return this.firmaService.deleteById(delete_int);
+//    }
+//
+
 }
