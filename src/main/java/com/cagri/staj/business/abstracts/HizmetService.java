@@ -8,6 +8,7 @@ import java.util.List;
 
 
 public interface HizmetService {
+
     DataResult<List<Hizmet>> getAll();
     Result add(Hizmet hizmet);
 

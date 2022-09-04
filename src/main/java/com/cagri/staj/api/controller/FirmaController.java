@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/firma")
+@CrossOrigin("*")
 public class FirmaController {
     private FirmaService firmaService;
 
@@ -26,7 +27,7 @@ public class FirmaController {
         return this.firmaService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add" ,  produces  = "application/json",consumes  = "application/json")
     public Result add(@RequestBody Firma firma) {
         return this.firmaService.add(firma);
     }

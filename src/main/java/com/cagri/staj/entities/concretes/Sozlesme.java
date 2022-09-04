@@ -40,13 +40,27 @@ public class Sozlesme {
     private String sozlesme_dosyasi;
 
     @Column(name = "sozlesme_not")
-    private String not;
+    private String sozlesme_not;
 
-    @Column(name = "sozlesme_suresi")
-    @NotNull
-    @NotEmpty
-    private String sozlesme_suresi;
+    @Column(name = "sozlesme_baslangic_tarihi")
+    private String sozlesme_baslangic_tarihi;
 
+    @Column(name = "sozlesme_sonlandirma_tarihi")
+    private String sozlesme_sonlandirma_tarihi;
 
+//    @Column(name = "sozlesme_suresi")
+//    private String sozlesme_suresi;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="firma_id")
+    private Firma firma;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="dil_id")
+    private Dil dil ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="hizmet_id")
+    private Hizmet hizmet  ;
 
 }

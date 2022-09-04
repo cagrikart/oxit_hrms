@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public interface PersonelDao extends JpaRepository<Personel,Integer> {
@@ -22,6 +23,8 @@ public interface PersonelDao extends JpaRepository<Personel,Integer> {
 //                        @Param(value = "personel_soyad") String personel_soyad,
 //                        @Param(value = "is_baslangic_tarihi") String is_baslangic_tarihi,
 //                        @Param(value = "dogum_tarihi") String dogum_tarihi);
+
+   // List<Personel> getByProductNameOrCategory_CategoryId( String productName, int categoryId); // product name i ya da category name i getir
 
 }
 

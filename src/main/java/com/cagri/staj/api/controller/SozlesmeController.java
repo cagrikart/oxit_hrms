@@ -5,7 +5,9 @@ import com.cagri.staj.core.utilities.results.DataResult;
 import com.cagri.staj.core.utilities.results.Result;
 import com.cagri.staj.dataAccess.SozlesmeDao;
 import com.cagri.staj.entities.concretes.Sozlesme;
+import com.cagri.staj.entities.concretes.SozlesmeFirma;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,22 +15,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/sozlesme")
-@CrossOrigin
-@SuppressWarnings("unused")
-@AllArgsConstructor
+@CrossOrigin("*")
 public class SozlesmeController {
 
     private SozlesmeService sozlesmeService;
-    private SozlesmeDao sozlesmeDao;
+
+    @Autowired
+    public SozlesmeController(SozlesmeService sozlesmeService) {
+        this.sozlesmeService = sozlesmeService;
+    }
 
     @GetMapping("/getall")
     public DataResult<List<Sozlesme>> getAll() {
         return this.sozlesmeService.getAll();
     }
 
-    @PostMapping("/add")
-    public Result add(@RequestBody Sozlesme sozlesme) {
-        return this.sozlesmeService.add(sozlesme);
+    @PostMapping(value = "/add" ,  produces  = "application/json",consumes  = "application/json")
+    public Result add(@RequestBody SozlesmeFirma sozlesmeFirma) {
+        System.out.println(sozlesmeFirma);
+        return this.sozlesmeService.add(sozlesmeFirma);
+
     }
 
     @DeleteMapping("/delete/{sozlesme_id}")

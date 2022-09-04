@@ -11,6 +11,8 @@ import com.cagri.staj.entities.concretes.UpdateRequestDepartman;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class DepartmanManager implements DepartmanService {
     private DepartmanDao departmanDao;
@@ -38,13 +40,18 @@ public class DepartmanManager implements DepartmanService {
 
     @Override
     public Result updateDepartman(UpdateRequestDepartman updateRequestDepartman) {
-        String ad ;
-        int id;
-        ad = updateRequestDepartman.getDepartman_ad();
-        id =  updateRequestDepartman.getDepartman_id();
-        this.departmanDao.updateDepartman(id,ad);
-        return new SuccessResult("güncellendi");
+//        String ad ;
+//        int id;
+//        ad = updateRequestDepartman.getDepartman_ad();
+//        id =  updateRequestDepartman.getDepartman_id();
+//        this.departmanDao.updateDepartman(id,ad);
+       return new SuccessResult("güncellendi");
     }
+
+//    @Override
+//    public Optional<Departman> findByDepartmanId(int departman_id) {
+//        return this.departmanDao.findById(departman_id);
+//    }
 
 
 }

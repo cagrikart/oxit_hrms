@@ -12,5 +12,5 @@ public interface DepartmanService {
     Result add(Departman departman);
     DataResult<Departman> deletById(int departman_id);
     Result updateDepartman (UpdateRequestDepartman updateRequestDepartman);
-
+//    Departman findByDepartmanId(int departman_id);
 }

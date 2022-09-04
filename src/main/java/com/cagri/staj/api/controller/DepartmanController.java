@@ -14,8 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/departman")
 @CrossOrigin
-
 public class DepartmanController {
+
     private DepartmanService departmanService;
 
     @Autowired
@@ -28,7 +28,7 @@ public class DepartmanController {
         return this.departmanService.getAll();
     }
 
-    @PostMapping("/add")
+    @PostMapping(value = "/add",  produces  = "application/json",consumes  = "application/json")
     public Result add(@RequestBody Departman departman) {
         return this.departmanService.add(departman);
     }
